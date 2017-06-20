@@ -11,7 +11,7 @@
         border: 1px solid black;
         margin: 10px 10px 20px 10px;
         padding: 6px 10px;
-      }
+      } 
       #spinner {
         display: none;
       }
