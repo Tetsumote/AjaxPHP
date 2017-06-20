@@ -33,6 +33,7 @@
 
       var container = document.getElementById('blog-posts');
       var load_more = document.getElementById('load-more');
+      var request_in_progress = false;
 
       function showSpinner() {
         var spinner = document.getElementById("spinner");
@@ -85,6 +86,9 @@
 
       function loadMore() {
 
+        if(request_in_progress){return;}
+        request_in_progress = true;
+
         showSpinner();
         hideLoadMore();
 
@@ -104,7 +108,7 @@
             // append results to end of blog posts
             appendToDiv(container, result);
             showLoadMore();
-
+            request_in_progress = false;
           }
         };
         xhr.send();
