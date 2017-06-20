@@ -52,6 +52,25 @@
         load_more.style.display = 'none';
       }
 
+
+      function appendToDiv(div,new_html){
+        
+        var temp = document.createElement('div');
+        temp.innerHTML = new_html;
+        
+        var class_name = temp.firstElementChild.className;
+        console.log(class_name);
+        var items = temp.getElementsByClassName(class_name);
+        console.log(items);
+
+        var len = items.length;
+        for(i=0;i< len; i++){
+          div.appendChild(items[0]);
+        }
+
+      }
+
+
       function loadMore() {
 
         showSpinner();
@@ -67,6 +86,7 @@
 
             hideSpinner();
             // append results to end of blog posts
+            appendToDiv(container,result);
             showLoadMore();
 
           }
